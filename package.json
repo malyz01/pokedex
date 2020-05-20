@@ -1,8 +1,8 @@
 {
-  "name": "bp",
+  "name": "pokedex",
   "version": "1.0.1",
   "description": "boiler plate",
-  "repository": "https://github.com/malyz01/bplate.git",
+  "repository": "https://github.com/malyz01/pokedex.git",
   "main": "server/index.js",
   "author": "Malyz",
   "license": "ISC",
@@ -12,7 +12,7 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
-    "start": "run-s build server",
+    "start": "node server",
     "build": "webpack",
     "server": "node server",
     "test": "jest --watchAll"
