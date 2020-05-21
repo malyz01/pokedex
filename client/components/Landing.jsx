@@ -9,12 +9,23 @@ class Landing extends React.Component {
   }
 
   render() {
-    return <h1>Landing Page</h1>
+    return (
+      <div>
+        {this.props.pokemon.map((p, i) => (
+          <div key={p.name} style={{ margin: '1.5rem 0' }}>
+            <div style={{ textTransform: 'capitalize' }}>
+              {i + 1} - {p.name}
+            </div>
+            <div>{p.url}</div>
+          </div>
+        ))}
+      </div>
+    )
   }
 }
 
 const mapStateToProps = (state) => ({
-  pokemon: state.pokemon
+  pokemon: state.pokemon.all
 })
 
 const mapDispatchToProps = {
