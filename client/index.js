@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import App from './components/App'
 import reducers from './store/reducers'
+import { rootSaga } from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -14,7 +15,7 @@ const store = createStore(
   reducers,
   composeEnhancers(applyMiddleware(sagaMiddleware))
 )
-// sagaMiddleware.run()
+sagaMiddleware.run(rootSaga)
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
