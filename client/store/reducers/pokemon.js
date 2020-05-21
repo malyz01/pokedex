@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case RECEIVE_API_ALL_POKEMON:
-      return action.payload
+      return { ...state, all: action.payload }
     default:
       return state
   }
