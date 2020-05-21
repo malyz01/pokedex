@@ -1,0 +1,12 @@
+.landingPokemonContainer {
+  margin: 1.5rem auto;
+  padding: 1rem;
+  border: 1px solid burlywood;
+  border-radius: 15px;
+  width: 500px;
+  text-align: center;
+}
+
+.landingPokemonName {
+  text-transform: capitalize;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import './landing.css'
 
 import { requestApiAllPokemon } from '../store/actions/pokemon'
 
@@ -12,8 +13,8 @@ class Landing extends React.Component {
     return (
       <div>
         {this.props.pokemon.map((p, i) => (
-          <div key={p.name} style={{ margin: '1.5rem 0' }}>
-            <div style={{ textTransform: 'capitalize' }}>
+          <div key={p.name} className="landingPokemonContainer">
+            <div className="landingPokemonName">
               {i + 1} - {p.name}
             </div>
             <div>{p.url}</div>
