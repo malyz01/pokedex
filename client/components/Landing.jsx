@@ -2,11 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './landing.css'
 
-import { requestApiAllPokemon } from '../store/actions/pokemon'
+import {
+  requestApiAllPokemon,
+  requestApiPokemon
+} from '../store/actions/pokemon'
 
 class Landing extends React.Component {
   componentDidMount() {
     this.props.requestApiAllPokemon()
+    // this.props.requestApiPokemon(3)
   }
 
   render() {
@@ -30,7 +34,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  requestApiAllPokemon
+  requestApiAllPokemon,
+  requestApiPokemon
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing)

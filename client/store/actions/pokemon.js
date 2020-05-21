@@ -14,8 +14,9 @@ export const receiveApiAllPokemon = (pokemon) => ({
   payload: pokemon
 })
 
-export const requestApiPokemon = () => ({
-  type: REQUEST_API_POKEMON
+export const requestApiPokemon = (id) => ({
+  type: REQUEST_API_POKEMON,
+  payload: id
 })
 
 export const receiveApiPokemon = (pokemon) => ({
