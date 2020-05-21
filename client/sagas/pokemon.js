@@ -5,8 +5,8 @@ import { receiveApiAllPokemon } from '../store/actions/pokemon'
 import { REQUEST_API_ALL_POKEMON } from '../store/types'
 
 function* callRequestAllPokemon(action) {
-  const { data } = yield call(api.get('/pokemon'))
-  yield put(receiveApiAllPokemon(data))
+  const { data } = yield call(api.get, '/pokemon')
+  yield put(receiveApiAllPokemon(data.results))
 }
 
 export function* requestAllPokemonSaga() {
