@@ -1,1 +1,2 @@
-export const TEST = 'TEST'
+export const REQUEST_API_POKEMON = 'REQUEST_API_POKEMON'
+export const RECEIVE_API_POKEMON = 'RECEIVE_API_POKEMON'
