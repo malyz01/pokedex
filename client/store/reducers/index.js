@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import test from './test'
+import pokemon from './pokemon'
 
 export default combineReducers({
-  test
+  pokemon
 })
