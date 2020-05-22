@@ -21,15 +21,19 @@ class Landing extends React.Component {
       <div className="container">
         <div className="row">
           {this.props.pokemon.map((p, i) => (
-            <div key={p.name} className="col s3 landingPokemonContainer">
-              <div className="landingPokemonName">{p.name}</div>
-              <div className="landingPokemonBtn">
-                <button
-                  className="waves-effect waves-light btn"
-                  onClick={this.handleOnClick(i + 1)}
-                >
-                  Get Pokemon
-                </button>
+            <div key={p.name} className="col s12 m4 landingPokemonName">
+              <div class="card blue-grey darken-1">
+                <div className="card-content white-text">
+                  <span className="card-title">{p.name}</span>
+                </div>
+                <div className="card-action">
+                  <button
+                    className="waves-effect waves-light btn"
+                    onClick={this.handleOnClick(i + 1)}
+                  >
+                    Get Pokemon
+                  </button>
+                </div>
               </div>
             </div>
           ))}
