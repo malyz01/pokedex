@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import './landing.css'
 
 import {
-  requestApiAllPokemon
-  // requestApiPokemon
+  requestApiAllPokemon,
+  requestApiPokemon
 } from '../store/actions/pokemon'
 
 class Landing extends React.Component {
@@ -12,9 +12,9 @@ class Landing extends React.Component {
     this.props.requestApiAllPokemon()
   }
 
-  // handleOnClick = (id) => () => {
-  //   this.props.requestApiPokemon(id)
-  // }
+  handleOnClick = (id) => () => {
+    this.props.requestApiPokemon(id)
+  }
 
   render() {
     return (
@@ -25,9 +25,9 @@ class Landing extends React.Component {
               {i + 1} - {p.name}
             </div>
             <div>{p.url}</div>
-            {/* <div>
+            <div>
               <button onClick={this.handleOnClick(i + 1)}>Get Pokemon</button>
-            </div> */}
+            </div>
           </div>
         ))}
       </div>
@@ -40,7 +40,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  requestApiAllPokemon
+  requestApiAllPokemon,
+  requestApiPokemon
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing)
