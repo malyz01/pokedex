@@ -3,17 +3,15 @@ body {
 }
 
 .landingPokemonContainer {
-  margin: 1.5rem auto;
-  padding: 1rem;
+  margin: 1.5rem 1rem;
   border: 1px solid burlywood;
   border-radius: 15px;
-  width: 400px;
   text-align: center;
   color: white;
 }
 
 .landingPokemonName,
-.landingPokemonUrl {
+.landingPokemonBtn {
   margin-bottom: 0.8rem;
 }
 

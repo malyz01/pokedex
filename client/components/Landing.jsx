@@ -18,23 +18,22 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.pokemon.map((p, i) => (
-          <div key={p.name} className="landingPokemonContainer">
-            <div className="landingPokemonName">
-              {i + 1} - {p.name}
+      <div className="container">
+        <div className="row">
+          {this.props.pokemon.map((p, i) => (
+            <div key={p.name} className="col s3 landingPokemonContainer">
+              <div className="landingPokemonName">{p.name}</div>
+              <div className="landingPokemonBtn">
+                <button
+                  className="waves-effect waves-light btn"
+                  onClick={this.handleOnClick(i + 1)}
+                >
+                  Get Pokemon
+                </button>
+              </div>
             </div>
-            <div className="landingPokemonUrl">{p.url}</div>
-            <div className="landingPokemonBtn">
-              <button
-                className="waves-effect waves-light btn"
-                onClick={this.handleOnClick(i + 1)}
-              >
-                Get Pokemon
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     )
   }
