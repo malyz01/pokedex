@@ -26,7 +26,12 @@ class Landing extends React.Component {
             </div>
             <div>{p.url}</div>
             <div>
-              <button onClick={this.handleOnClick(i + 1)}>Get Pokemon</button>
+              <button
+                className="waves-effect waves-light btn"
+                onClick={this.handleOnClick(i + 1)}
+              >
+                Get Pokemon
+              </button>
             </div>
           </div>
         ))}

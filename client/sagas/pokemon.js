@@ -17,7 +17,6 @@ export function* requestAllPokemonSaga() {
 }
 
 function* callGetPokemon(action) {
-  console.log(action)
   const { data } = yield call(api.get, `/pokemon/${action.payload}`)
   yield put(receiveApiPokemon(data))
 }
