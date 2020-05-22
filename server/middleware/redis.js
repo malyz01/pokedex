@@ -5,8 +5,10 @@ const client = redis.createClient(REDIS_PORT)
 
 module.exports = {
   client,
-  cache: (req, res, next) => {
-    client.get('pokemon', (err, data) => {
+  cache: (name) => (req, res, next) => {
+    const params = Object.keys(req.params)[0]
+    const p = params.length ? `${name}${req.params[params]}` : name
+    client.get(p, (err, data) => {
       if (err) throw err
 
       if (data !== null) {

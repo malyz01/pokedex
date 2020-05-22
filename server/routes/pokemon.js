@@ -3,7 +3,7 @@ const axios = require('axios')
 
 const { client, cache } = require('../middleware/redis')
 
-router.get('/pokemon', cache, async (req, res) => {
+router.get('/pokemon', cache('pokemon'), async (req, res) => {
   const { data } = await axios.get(
     'https://pokeapi.co/api/v2/pokemon?limit=1000'
   )
