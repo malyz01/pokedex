@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './landing.css'
 
+import PokemonDetails from './PokemonDetails'
 import {
   requestApiAllPokemon,
   requestApiPokemon
@@ -16,6 +17,12 @@ class Landing extends React.Component {
     this.props.requestApiPokemon(id)
   }
 
+  renderPokemon = (name) => {
+    if (name === this.props.selected.name) {
+      return <PokemonDetails pokemon={this.props.selected} />
+    }
+  }
+
   render() {
     return (
       <div className="container">
@@ -26,6 +33,7 @@ class Landing extends React.Component {
                 <div className="card-content white-text">
                   <span className="card-title">{p.name}</span>
                 </div>
+                {this.props.selected && this.renderPokemon(p.name)}
                 <div className="card-action">
                   <button
                     className="waves-effect waves-light btn"
@@ -44,7 +52,8 @@ class Landing extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  pokemon: state.pokemon.all
+  pokemon: state.pokemon.all,
+  selected: state.pokemon.selected
 })
 
 const mapDispatchToProps = {

@@ -2,7 +2,7 @@ import { RECEIVE_API_ALL_POKEMON, RECEIVE_API_POKEMON } from '../types'
 
 const INITIAL_STATE = {
   all: [],
-  selected: {}
+  selected: null
 }
 
 export default (state = INITIAL_STATE, action) => {
