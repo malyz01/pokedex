@@ -23,6 +23,22 @@ class Landing extends React.Component {
     }
   }
 
+  renderGetPokemon = (name, i) => {
+    const select = this.props.selected ? this.props.selected.name : ''
+    if (name !== select) {
+      return (
+        <div key={i} className="card-action">
+          <button
+            className="waves-effect waves-light btn"
+            onClick={this.handleOnClick(i + 1)}
+          >
+            Get Pokemon
+          </button>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="container">
@@ -34,14 +50,7 @@ class Landing extends React.Component {
                   <span className="card-title">{p.name}</span>
                 </div>
                 {this.props.selected && this.renderPokemon(p.name)}
-                <div className="card-action">
-                  <button
-                    className="waves-effect waves-light btn"
-                    onClick={this.handleOnClick(i + 1)}
-                  >
-                    Get Pokemon
-                  </button>
-                </div>
+                {this.renderGetPokemon(p.name, i)}
               </div>
             </div>
           ))}
