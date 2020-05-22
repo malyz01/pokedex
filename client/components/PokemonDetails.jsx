@@ -7,7 +7,7 @@ const PokemonDetails = ({ pokemon }) => {
       <div className="card-image">
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       </div>
-      <div classname="card-content">
+      <div className="card-content">
         <div>Abilities</div>
         {abilities.map((a) => (
           <div>{a}</div>

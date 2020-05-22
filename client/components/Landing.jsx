@@ -29,7 +29,7 @@ class Landing extends React.Component {
         <div className="row">
           {this.props.pokemon.map((p, i) => (
             <div key={p.name} className="col s12 m4 landingPokemonName">
-              <div class="card blue-grey darken-1">
+              <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
                   <span className="card-title">{p.name}</span>
                 </div>
