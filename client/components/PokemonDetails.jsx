@@ -15,10 +15,10 @@ const PokemonDetails = ({ pokemon }) => {
           <li className="tab">Info</li>
         </ul>
       </div>
-      <div class="card-content grey lighten-4">
+      <div className="card-content grey lighten-4">
         <div id="abilities">
           {abilities.map((a) => (
-            <div>{a}</div>
+            <div key={a}>{a}</div>
           ))}
         </div>
       </div>
