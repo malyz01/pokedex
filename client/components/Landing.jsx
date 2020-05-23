@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import './landing.css'
 
 import PokemonDetails from './PokemonDetails'
@@ -32,14 +32,9 @@ class Landing extends React.Component {
     const select = this.props.selected ? this.props.selected.name : ''
     if (name !== select) {
       return (
-        <div key={i} className="card-action">
-          <button
-            className="waves-effect waves-light btn"
-            onClick={this.handleOnClick(i + 1)}
-          >
-            Get Pokemon
-          </button>
-        </div>
+        <Button variant="outline-info" onClick={this.handleOnClick(i + 1)}>
+          Get Pokemon
+        </Button>
       )
     }
   }
