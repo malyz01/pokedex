@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import CardDeck from 'react-bootstrap/CardDeck'
+import Card from 'react-bootstrap/Card'
 import './landing.css'
 
 import PokemonDetails from './PokemonDetails'
@@ -44,17 +46,19 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container className="landing" fluid>
         <Row>
           {this.props.pokemon.map((p, i) => (
-            <Col xs={2} key={p.name}>
-              <div className="card blue-grey darken-1">
-                <div className="card-content white-text">
+            <Col className="landing" xs="12" sm="4" md="2" key={p.name}>
+              <Card border="info">
+                <Card.Header>
                   <span className="landingPokemonName">{p.name}</span>
-                </div>
-                {this.props.selected && this.renderPokemon(p.name)}
-                {this.renderGetPokemon(p.name, i)}
-              </div>
+                </Card.Header>
+                <Card.Body>
+                  {this.props.selected && this.renderPokemon(p.name)}
+                  {this.renderGetPokemon(p.name, i)}
+                </Card.Body>
+              </Card>
             </Col>
           ))}
         </Row>

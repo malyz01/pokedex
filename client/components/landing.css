@@ -1,3 +1,11 @@
+.container-fluid.landing {
+  padding: 2rem 4rem;
+}
+
+.col-md-2.landing {
+  margin-bottom: 1rem;
+}
+
 .landingPokemonName {
   text-transform: capitalize;
 }

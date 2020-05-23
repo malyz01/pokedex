@@ -1,5 +1,5 @@
 import api from '../api'
-import { takeEvery, call, put } from 'redux-saga/effects'
+import { takeLatest, takeEvery, call, put } from 'redux-saga/effects'
 
 import {
   receiveApiAllPokemon,
@@ -12,15 +12,12 @@ function* callGetAllPokemon() {
   yield put(receiveApiAllPokemon(data))
 }
 
-export function* requestAllPokemonSaga() {
-  yield takeEvery(REQUEST_API_ALL_POKEMON, callGetAllPokemon)
-}
-
 function* callGetPokemon(action) {
   const { data } = yield call(api.get, `/pokemon/${action.payload}`)
   yield put(receiveApiPokemon(data))
 }
 
-export function* requestPokemonSaga() {
-  yield takeEvery(REQUEST_API_POKEMON, callGetPokemon)
+export default function* requestPokemonSaga() {
+  yield takeEvery(REQUEST_API_ALL_POKEMON, callGetAllPokemon)
+  yield takeLatest(REQUEST_API_POKEMON, callGetPokemon)
 }
