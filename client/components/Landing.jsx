@@ -1,5 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import './landing.css'
 
 import PokemonDetails from './PokemonDetails'
@@ -41,19 +44,21 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        {this.props.pokemon.map((p, i) => (
-          <div key={p.name} className="landingPokemonName">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className="card-title">{p.name}</span>
+      <Container fluid>
+        <Row>
+          {this.props.pokemon.map((p, i) => (
+            <Col xs={2} key={p.name}>
+              <div className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                  <span className="landingPokemonName">{p.name}</span>
+                </div>
+                {this.props.selected && this.renderPokemon(p.name)}
+                {this.renderGetPokemon(p.name, i)}
               </div>
-              {this.props.selected && this.renderPokemon(p.name)}
-              {this.renderGetPokemon(p.name, i)}
-            </div>
-          </div>
-        ))}
-      </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     )
   }
 }
