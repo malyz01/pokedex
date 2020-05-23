@@ -1,27 +1,30 @@
 import React from 'react'
+import Card from 'react-bootstrap/Card'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+
+const Abilities = ({ pokemon }) => {
+  const abilities = pokemon.abilities.map((a) => a.ability.name)
+  return (
+    <div>
+      {abilities.map((a) => (
+        <div key={a}>{a}</div>
+      ))}
+    </div>
+  )
+}
 
 const PokemonDetails = ({ pokemon }) => {
   const abilities = pokemon.abilities.map((a) => a.ability.name)
   return (
     <>
-      <div className="card-image">
-        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      </div>
-      <div className="card-tabs">
-        <ul className="tabs tabs-fixed-width">
-          <li className="tab">
-            <a href="#abilities">Abilities</a>
-          </li>
-          <li className="tab">Info</li>
-        </ul>
-      </div>
-      <div className="card-content grey lighten-4">
-        <div id="abilities">
-          {abilities.map((a) => (
-            <div key={a}>{a}</div>
-          ))}
-        </div>
-      </div>
+      <Card.Img
+        variant="top"
+        src={pokemon.sprites.front_default}
+        alt={pokemon.name}
+      />
+      <Abilities pokemon={pokemon} />
+      <Card.Text></Card.Text>
     </>
   )
 }
