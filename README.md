@@ -5,4 +5,4 @@
 - React (Redux with redux-saga middleware)
 - Node.js
 - Express.js
-- PostGres (Sequelize) / Redis
+- PostGres (Sequelize) / Redis (Cache)
