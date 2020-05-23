@@ -1,8 +1,8 @@
-.container-fluid.landing {
+.landingMainContainer {
   padding: 2rem 4rem;
 }
 
-.col-md-2.landing {
+div.landingCol {
   margin-bottom: 1rem;
 }
 

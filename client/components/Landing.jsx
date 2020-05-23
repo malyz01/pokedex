@@ -46,10 +46,17 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <Container className="landing" fluid>
+      <Container fluid className="landingMainContainer">
         <Row>
           {this.props.pokemon.map((p, i) => (
-            <Col className="landing" xs="12" sm="4" md="2" key={p.name}>
+            <Col
+              className="landingCol"
+              xs={12}
+              sm={6}
+              md={3}
+              lg={2}
+              key={p.name}
+            >
               <Card border="info">
                 <Card.Header>
                   <span className="landingPokemonName">{p.name}</span>
