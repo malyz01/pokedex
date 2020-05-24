@@ -12,12 +12,17 @@ router.get('/pokemon', cache('pokemon'), async (req, res) => {
 })
 
 router.get('/pokemon/:id', cache('pokemon'), async (req, res) => {
-  const { id } = req.params
-  const { data } = await axios.get(
-    `https://pokeapi.co/api/v2/pokemon/${req.params.id}`
-  )
-  client.setex(`pokemon${id}`, 3600, JSON.stringify(data))
-  res.status(200).json(data)
+  try {
+    const { id } = req.params
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${req.params.id}`
+    )
+    client.setex(`pokemon${id}`, 3600, JSON.stringify(data))
+    res.status(200).json(data)
+  } catch (err) {
+    console.log(err.response.data)
+    res.status(404).json('No Information available')
+  }
 })
 
 module.exports = router
