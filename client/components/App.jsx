@@ -3,12 +3,16 @@ import { HashRouter, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Landing from './Landing'
+import Modal from './Modal'
 
 const App = () => {
   return (
-    <HashRouter>
-      <Route exact path="/" component={Landing} />
-    </HashRouter>
+    <>
+      <Modal />
+      <HashRouter>
+        <Route exact path="/" component={Landing} />
+      </HashRouter>
+    </>
   )
 }
 
