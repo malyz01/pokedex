@@ -5,6 +5,7 @@ import {
   receiveApiAllPokemon,
   receiveApiPokemon
 } from '../store/actions/pokemon'
+import { setError } from '../store/actions/error'
 import { REQUEST_API_ALL_POKEMON, REQUEST_API_POKEMON } from '../store/types'
 
 function* callGetAllPokemon() {
@@ -12,13 +13,13 @@ function* callGetAllPokemon() {
   yield put(receiveApiAllPokemon(data))
 }
 
-// TODO add error handling
 function* callGetPokemon(action) {
   try {
     const { data } = yield call(api.get, `/pokemon/${action.payload}`)
     yield put(receiveApiPokemon(data))
   } catch (err) {
-    console.log(err.response.data)
+    const { status, data } = err.response
+    yield put(setError(status, data))
   }
 }
 
