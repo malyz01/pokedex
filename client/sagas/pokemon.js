@@ -12,6 +12,7 @@ function* callGetAllPokemon() {
   yield put(receiveApiAllPokemon(data))
 }
 
+// TODO add error handling
 function* callGetPokemon(action) {
   const { data } = yield call(api.get, `/pokemon/${action.payload}`)
   yield put(receiveApiPokemon(data))
