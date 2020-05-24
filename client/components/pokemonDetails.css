@@ -1,0 +1,7 @@
+div.pokemonDetailTabContent {
+  padding: 2rem 0;
+}
+
+div.pokemon {
+  text-transform: capitalize;
+}
