@@ -14,8 +14,12 @@ function* callGetAllPokemon() {
 
 // TODO add error handling
 function* callGetPokemon(action) {
-  const { data } = yield call(api.get, `/pokemon/${action.payload}`)
-  yield put(receiveApiPokemon(data))
+  try {
+    const { data } = yield call(api.get, `/pokemon/${action.payload}`)
+    yield put(receiveApiPokemon(data))
+  } catch (err) {
+    console.log(err.response.data)
+  }
 }
 
 export default function* requestPokemonSaga() {
