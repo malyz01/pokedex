@@ -10,11 +10,12 @@ const User = db.define('user', {
   }
 })
 
-User.create({
-  firstName: 'Fuwoo',
-  lastName: 'Uy'
-})
+// TODO explore migration and seed
+// User.create({
+//   firstName: 'Fuwoo',
+//   lastName: 'Uy'
+// })
 
-User.findAll().then((users) => console.log(users[2].dataValues))
+User.findAll().then((users) => console.log(users[0].dataValues))
 
 module.exports = User
