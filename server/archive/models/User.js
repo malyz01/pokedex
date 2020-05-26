@@ -1,5 +1,5 @@
-const db = require('../connection')
 const { STRING } = require('sequelize')
+const db = require('../connection')
 
 const User = db.define('user', {
   firstName: {
