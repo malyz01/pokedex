@@ -4,5 +4,6 @@ module.exports = {
   development: new Sequelize({
     dialect: 'sqlite',
     storage: './server/db/database.sqlite'
-  })
+  }),
+  production: new Sequelize()
 }
