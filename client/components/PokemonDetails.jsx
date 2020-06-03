@@ -1,4 +1,5 @@
 import React from 'react'
+import * as copy from 'copy-to-clipboard'
 import Card from 'react-bootstrap/Card'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
@@ -26,6 +27,10 @@ const Info = ({ pokemon }) => {
 }
 
 const PokemonDetails = ({ pokemon }) => {
+  const handleCopy = (string) => () => {
+    copy(string)
+  }
+
   return (
     <>
       <Card.Img
@@ -35,6 +40,7 @@ const PokemonDetails = ({ pokemon }) => {
       />
       <Tabs defaultActiveKey="info">
         <Tab className="pokemonDetailTabContent" eventKey="info" title="Info">
+          <button onClick={handleCopy(pokemon.name)}>Copy name</button>
           <Info pokemon={pokemon} />
         </Tab>
         <Tab
