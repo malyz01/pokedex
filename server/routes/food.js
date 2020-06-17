@@ -8,11 +8,25 @@ const api = axios.create({
   }
 })
 
+// /api/v1/food/search
+// queries:
+// query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
+router.get('/search', async (req, res) => {
+  try {
+    const query = { params: { ...req.body } } || {}
+    const response = await api.get('/search', query)
+    res.status(200).json(response.data)
+  } catch (err) {
+    console.log(err)
+    res.json('Something went wrong in Get /api/v1/food/search')
+  }
+})
+
 // /api/v1/food/random
 router.get('/random', async (req, res) => {
   try {
-    const result = await api.get('/random')
-    res.json(result.data)
+    const response = await api.get('/random')
+    res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
     res.json('Something went wrong in Get /api/v1/food/random')
