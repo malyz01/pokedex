@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const axios = require('axios')
 
-const api = { apiKey: process.env.FOOD_API }
+const api = { params: { apiKey: process.env.FOOD_API } }
 
 // /api/v1/food
 router.get('/', async (req, res) => {
@@ -11,10 +11,11 @@ router.get('/', async (req, res) => {
       'https://api.spoonacular.com/recipes/random',
       api
     )
-    res.json(result)
+    res.json(result.data)
   } catch (err) {
-    console.log(err.response.data)
-    res.json(err.response.data.message)
+    console.log(err)
+    // console.log(err.response.data)
+    // res.json(err.response.data.message)
   }
 })
 
