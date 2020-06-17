@@ -15,7 +15,7 @@ router.get('/random', async (req, res) => {
     res.json(result.data)
   } catch (err) {
     console.log(err)
-    res.json('Something went wrong in Get - food api')
+    res.json('Something went wrong in Get /api/v1/food/random')
   }
 })
 
