@@ -8,24 +8,24 @@ const api = axios.create({
   }
 })
 
-// /api/v1/food/search
+// /api/v1/food/spoonacular/search
 // queries:
 // query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
 router.get('/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
-    const response = await api.get('/search', query)
+    const response = await api.get('/spoonacular/search', query)
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
-    res.json('Something went wrong in Get /api/v1/food/search')
+    res.json('Something went wrong in Get /api/v1/food/spoonacular/search')
   }
 })
 
-// /api/v1/food/random
-router.get('/random', async (req, res) => {
+// /api/v1/food/spoonacular/random
+router.get('/spoonacular/random', async (req, res) => {
   try {
-    const response = await api.get('/random')
+    const response = await api.get('/spoonacular/random')
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
