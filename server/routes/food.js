@@ -8,6 +8,13 @@ const spoonacular = axios.create({
   }
 })
 
+const spoonacular = axios.create({
+  baseURL: process.env.FOOD_SPOONACULAR_URL,
+  params: {
+    app_id: process.env.FOOD_EDAMAM_API
+  }
+})
+
 // /api/v1/food/spoonacular/search
 // queries:
 // query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
@@ -35,15 +42,14 @@ router.get('/spoonacular/random', async (req, res) => {
 
 // /api/v1/food/edamam/search
 // queries:
-// query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
 router.get('/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
-    const response = await api.get('/spoonacular/search', query)
+    const response = await api.get('/edamam/search', query)
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
-    res.json('Something went wrong in Get /api/v1/food/spoonacular/search')
+    res.json('Something went wrong in Get /api/v1/food/edamam/search')
   }
 })
 
