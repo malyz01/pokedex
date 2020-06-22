@@ -8,8 +8,8 @@ const spoonacular = axios.create({
   }
 })
 
-const spoonacular = axios.create({
-  baseURL: process.env.FOOD_SPOONACULAR_URL,
+const edamam = axios.create({
+  baseURL: process.env.FOOD_EDAMAM_URL,
   params: {
     app_id: process.env.FOOD_EDAMAM_API
   }
