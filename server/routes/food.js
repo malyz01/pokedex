@@ -45,7 +45,7 @@ router.get('/spoonacular/random', async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
-    const response = await api.get('/edamam/search', query)
+    const response = await edamam.get('/edamam/search', query)
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
