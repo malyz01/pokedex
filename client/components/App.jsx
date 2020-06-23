@@ -11,6 +11,8 @@ const App = () => {
       <Modal />
       <HashRouter>
         <Route exact path="/" component={Landing} />
+        <Route exact path="/pokemon" component={Landing} />
+        <Route exact path="/edamam" component={Landing} />
       </HashRouter>
     </>
   )
