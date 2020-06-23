@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Modal from 'react-bootstrap/Modal'
 
-import { setError } from '../store/actions/error'
+import { setError } from '../../store/actions/error'
 
 const CsmModal = (props) => {
   const handleClose = () => {
