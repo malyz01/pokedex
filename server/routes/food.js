@@ -43,7 +43,7 @@ router.get('/spoonacular/random', async (req, res) => {
 
 // /api/v1/food/edamam/search
 // queries:
-router.get('/edamam/search', async (req, res) => {
+router.post('/edamam/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
     const response = await edamam.get('/search', query)

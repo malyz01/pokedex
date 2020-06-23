@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import './style.css'
 
-const index = () => {
-  const [q, setQ] = useState('')
+import { requestApiEdamam } from '../../store/actions/edamam'
+
+const index = (props) => {
+  const [query, setQuery] = useState({ q: '' })
   const [result, setResult] = useState('')
 
   const handleChange = (e) => {
-    setQ(e.target.value)
+    setQuery({ q: e.target.value })
   }
 
   const handleSubmit = (e) => {
-    setResult(q)
-    setQ('')
+    props.requestApiEdamam(query)
+    setResult(query.q)
+    setQuery({ q: '' })
   }
 
   return (
@@ -20,9 +24,9 @@ const index = () => {
         <label className="mr-3">Query</label>
         <input
           className="mr-3"
-          name="q"
+          name="query"
           type="text"
-          value={q}
+          value={query.q}
           onChange={handleChange}
         />
         <button onClick={handleSubmit} className="btn btn-primary">
@@ -37,4 +41,4 @@ const index = () => {
   )
 }
 
-export default index
+export default connect(null, { requestApiEdamam })(index)
