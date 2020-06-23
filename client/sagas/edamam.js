@@ -19,6 +19,6 @@ function* callQueryEdamam(action) {
   }
 }
 
-export default function* requestPokemonSaga() {
+export default function* requestEdamamSaga() {
   yield takeLatest(REQUEST_API_QUERY_EDAMAM, callQueryEdamam)
 }
