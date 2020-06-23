@@ -11,7 +11,8 @@ const spoonacular = axios.create({
 const edamam = axios.create({
   baseURL: process.env.FOOD_EDAMAM_URL,
   params: {
-    app_id: process.env.FOOD_EDAMAM_API
+    app_id: process.env.FOOD_EDAMAM_ID,
+    app_key: process.env.FOOD_EDAMAM_API
   }
 })
 
@@ -42,13 +43,13 @@ router.get('/spoonacular/random', async (req, res) => {
 
 // /api/v1/food/edamam/search
 // queries:
-router.get('/search', async (req, res) => {
+router.get('/edamam/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
     const response = await edamam.get('/search', query)
     res.status(200).json(response.data)
   } catch (err) {
-    console.log(err)
+    console.log(err.request)
     res.json('Something went wrong in Get /api/v1/food/edamam/search')
   }
 })
