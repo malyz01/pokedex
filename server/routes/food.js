@@ -18,10 +18,10 @@ const edamam = axios.create({
 // /api/v1/food/spoonacular/search
 // queries:
 // query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
-router.get('/search', async (req, res) => {
+router.get('/spoonacular/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
-    const response = await spoonacular.get('/spoonacular/search', query)
+    const response = await spoonacular.get('/search', query)
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
@@ -32,7 +32,7 @@ router.get('/search', async (req, res) => {
 // /api/v1/food/spoonacular/random
 router.get('/spoonacular/random', async (req, res) => {
   try {
-    const response = await spoonacular.get('/spoonacular/random')
+    const response = await spoonacular.get('/random')
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
@@ -45,7 +45,7 @@ router.get('/spoonacular/random', async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
-    const response = await edamam.get('/edamam/search', query)
+    const response = await edamam.get('/search', query)
     res.status(200).json(response.data)
   } catch (err) {
     console.log(err)
