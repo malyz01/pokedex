@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './style.css'
 
+import Card from './Card'
 import { requestApiEdamam } from '../../store/actions/edamam'
 
 const defaultObj = {
@@ -15,7 +16,7 @@ const defaultObj = {
 const index = (props) => {
   const [query, setQuery] = useState({ q: '' })
   const [result, setResult] = useState('')
-  const { hits = null, ...edamam } = props.edamam
+  const { hits = [], ...edamam } = props.edamam
   const edaFood = Object.keys(edamam).length > 0 ? edamam : defaultObj
 
   const handleChange = (e) => {
@@ -56,6 +57,8 @@ const index = (props) => {
         <div>
           <strong>count:</strong> {edaFood.count}
         </div>
+        {hits.length > 0 &&
+          hits.map(({ recipe }) => <Card key={recipe.uri} recipe={recipe} />)}
       </div>
     </div>
   )
