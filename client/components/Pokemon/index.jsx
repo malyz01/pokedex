@@ -5,13 +5,13 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import './landing.css'
+import './style.css'
 
 import PokemonDetails from './PokemonDetails'
 import {
   requestApiAllPokemon,
   requestApiPokemon
-} from '../store/actions/pokemon'
+} from '../../store/actions/pokemon'
 
 class Landing extends React.Component {
   componentDidMount() {
@@ -41,11 +41,11 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <Container fluid className="landingMainContainer">
+      <Container fluid className="PokemonMainContainer">
         <Row>
           {this.props.pokemon.map((p, i) => (
             <Col
-              className="landingCol"
+              className="PokemonCol"
               xs={12}
               sm={6}
               md={3}
@@ -54,7 +54,7 @@ class Landing extends React.Component {
             >
               <Card border="info">
                 <Card.Header>
-                  <span className="landingPokemonName">{p.name}</span>
+                  <span className="PokemonName">{p.name}</span>
                 </Card.Header>
                 <Card.Body>
                   {this.props.selected && this.renderPokemon(p.name)}

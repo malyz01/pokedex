@@ -1,0 +1,11 @@
+.PokemonMainContainer {
+  padding: 2rem 4rem;
+}
+
+div.PokemonCol {
+  margin-bottom: 1rem;
+}
+
+.PokemonName {
+  text-transform: capitalize;
+}

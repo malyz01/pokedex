@@ -1,3 +1,7 @@
 .landingMainContainer {
   padding: 2rem 4rem;
 }
+
+.linkContainer {
+  cursor: pointer;
+}
