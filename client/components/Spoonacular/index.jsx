@@ -34,7 +34,7 @@ const index = (props) => {
           Submit
         </button>
       </div>
-      <hr className="mb-5" />
+      <hr className="mb-2" />
       <div className="SpoonacularSearchResult p-2">
         {spoonacularKeys.length > 0 &&
           spoonacularKeys
