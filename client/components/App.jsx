@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Landing from './Landing'
 import Pokemon from './Pokemon'
 import Edamam from './Edamam'
+import Spoonacular from './Spoonacular'
 import Modal from './Pokemon/Modal'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/" component={Landing} />
         <Route exact path="/pokemon" component={Pokemon} />
         <Route exact path="/edamam" component={Edamam} />
+        <Route exact path="/spoonacular" component={Spoonacular} />
       </HashRouter>
     </>
   )
