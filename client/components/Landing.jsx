@@ -18,6 +18,12 @@ const Landing = (props) => {
           Food Search - Edamam
         </div>
         <div
+          onClick={handleRoute('spoonacular')}
+          className="jumbotron linkContainer"
+        >
+          Food Search - Spoonacular
+        </div>
+        <div
           onClick={handleRoute('pokemon')}
           className="jumbotron linkContainer"
         >
