@@ -2,8 +2,8 @@ import React from 'react'
 
 const Card = ({ results: r }) => {
   return (
-    <div className="card mb-5">
-      <img src={r.image} className="card-img-top" alt={r.id} />
+    <div className="card my-5">
+      <img src={r.image} className="card-img-top" alt={r.title} />
       <div className="card-header">
         <h5 className="card-title">title: {r.title}</h5>
         <div>sourceUrl: {r.sourceUrl}</div>
