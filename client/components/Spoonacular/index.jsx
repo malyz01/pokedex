@@ -8,6 +8,7 @@ import { requestApiSpoonacular } from '../../store/actions/spoonacular'
 const index = (props) => {
   const [query, setQuery] = useState({ query: '' })
   const [result, setResult] = useState('')
+  const spoonacularKeys = Object.keys(props.spoonacular)
 
   const handleChange = (e) => {
     setQuery({ [e.target.name]: e.target.value })
@@ -34,7 +35,16 @@ const index = (props) => {
         </button>
       </div>
       <hr className="mb-5" />
-      <div className="SpoonacularSearchResult p-2">Spoonacular data</div>
+      <div className="SpoonacularSearchResult p-2">
+        {spoonacularKeys.length > 0 &&
+          spoonacularKeys
+            .filter((x) => x !== 'results')
+            .map((x) => (
+              <div key={x}>
+                <strong>{x}:</strong> {props.spoonacular[x].toString()}
+              </div>
+            ))}
+      </div>
     </div>
   )
 }
