@@ -44,6 +44,8 @@ const index = (props) => {
                 <strong>{x}:</strong> {props.spoonacular[x].toString()}
               </div>
             ))}
+        {spoonacularKeys.length > 0 &&
+          props.spoonacular.results.map((x) => <Card key={x.id} results={x} />)}
       </div>
     </div>
   )
