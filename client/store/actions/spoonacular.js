@@ -1,6 +1,6 @@
 import {
   REQUEST_API_QUERY_SPOONACULAR,
-  RECEIVE_API_QUERT_SPOONACULAR
+  RECEIVE_API_QUERY_SPOONACULAR
 } from '../types'
 
 export const requestApiSpoonacular = (payload) => ({
@@ -9,6 +9,6 @@ export const requestApiSpoonacular = (payload) => ({
 })
 
 export const receiveApiSpoonacular = (payload) => ({
-  type: RECEIVE_API_QUERT_SPOONACULAR,
+  type: RECEIVE_API_QUERY_SPOONACULAR,
   payload
 })
