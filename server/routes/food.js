@@ -19,7 +19,7 @@ const edamam = axios.create({
 // /api/v1/food/spoonacular/search
 // queries:
 // query, cuisine, diet, excludeIngredients, intolerances, offset, number, limitLicense, instructionsRequired
-router.get('/spoonacular/search', async (req, res) => {
+router.post('/spoonacular/search', async (req, res) => {
   try {
     const query = { params: { ...req.body } } || {}
     const response = await spoonacular.get('/search', query)
