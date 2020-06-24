@@ -3,30 +3,20 @@ import { connect } from 'react-redux'
 import './style.css'
 
 import Card from './Card'
-import { requestApiEdamam } from '../../store/actions/edamam'
-
-const defaultObj = {
-  q: '',
-  from: '',
-  to: '',
-  more: '',
-  count: ''
-}
+import { requestApiSpoonacular } from '../../store/actions/spoonacular'
 
 const index = (props) => {
-  const [query, setQuery] = useState({ q: '' })
+  const [query, setQuery] = useState({ query: '' })
   const [result, setResult] = useState('')
-  const { hits = [], ...edamam } = props.edamam
-  const edaFood = Object.keys(edamam).length > 0 ? edamam : defaultObj
 
   const handleChange = (e) => {
-    setQuery({ q: e.target.value })
+    setQuery({ [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
-    props.requestApiEdamam(query)
+    props.requestApiSpoonacular(query)
     setResult(query.q)
-    setQuery({ q: '' })
+    setQuery({ query: '' })
   }
   return (
     <div className="container mt-4">
@@ -36,7 +26,7 @@ const index = (props) => {
           className="mr-3"
           name="query"
           type="text"
-          value={query.q}
+          value={query.query}
           onChange={handleChange}
         />
         <button onClick={handleSubmit} className="btn btn-primary">
@@ -44,28 +34,13 @@ const index = (props) => {
         </button>
       </div>
       <hr className="mb-5" />
-      <div className="SpoonacularSearchResult p-2">
-        <div>
-          <strong>Result for:</strong> {result}
-        </div>
-        <div>
-          <strong>from</strong> {edaFood.from} <strong>to</strong> {edaFood.to}
-        </div>
-        <div>
-          <strong>more</strong> {edaFood.more !== '' ? 'true' : ''}
-        </div>
-        <div>
-          <strong>count:</strong> {edaFood.count}
-        </div>
-        {hits.length > 0 &&
-          hits.map(({ recipe }) => <Card key={recipe.uri} recipe={recipe} />)}
-      </div>
+      <div className="SpoonacularSearchResult p-2">Spoonacular data</div>
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  edamam: state.edamam
+  spoonacular: state.spoonacular
 })
 
-export default connect(mapStateToProps, { requestApiEdamam })(index)
+export default connect(mapStateToProps, { requestApiSpoonacular })(index)
