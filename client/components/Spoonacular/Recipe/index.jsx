@@ -14,6 +14,7 @@ const index = (props) => {
   if (!recipeDetails.length) return <h1>No Recipe Info</h1>
   return (
     <div>
+      <h1>{props.info.title}</h1>
       {recipeDetails.map((r, i) => {
         return (
           <div
