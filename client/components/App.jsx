@@ -17,6 +17,7 @@ const App = () => {
         <Route exact path="/pokemon" component={Pokemon} />
         <Route exact path="/edamam" component={Edamam} />
         <Route exact path="/spoonacular" component={Spoonacular} />
+        <Route exact path="/spoonacular/:id" component={Spoonacular} />
       </HashRouter>
     </>
   )

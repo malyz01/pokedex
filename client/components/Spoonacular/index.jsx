@@ -6,30 +6,98 @@ import Card from './Card'
 import { requestApiSpoonacular } from '../../store/actions/spoonacular'
 
 const index = (props) => {
-  const [query, setQuery] = useState({ query: '' })
-  const [result, setResult] = useState('')
+  const [query, setQuery] = useState({
+    query: '',
+    cuisine: '',
+    diet: '',
+    excludeIngredients: '',
+    intolerances: ''
+  })
   const spoonacularKeys = Object.keys(props.spoonacular)
 
   const handleChange = (e) => {
-    setQuery({ [e.target.name]: e.target.value })
+    e.persist()
+    setQuery((prev) => {
+      return { ...prev, [e.target.name]: e.target.value }
+    })
   }
 
   const handleSubmit = (e) => {
     props.requestApiSpoonacular(query)
-    setResult(query.q)
-    setQuery({ query: '' })
+    setQuery({
+      query: '',
+      cuisine: '',
+      diet: '',
+      excludeIngredients: '',
+      intolerances: ''
+    })
   }
   return (
     <div className="container mt-4">
       <div className="jumbotron">
-        <label className="mr-3">Query</label>
-        <input
-          className="mr-3"
-          name="query"
-          type="text"
-          value={query.query}
-          onChange={handleChange}
-        />
+        <div>
+          <label style={{ minWidth: 150 }} className="mr-3">
+            Query:
+          </label>
+          <input
+            className="mr-3"
+            name="query"
+            type="text"
+            value={query.query}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label style={{ minWidth: 150 }} className="mr-3">
+            Cuisine:
+          </label>
+          <input
+            className="mr-3"
+            name="cuisine"
+            type="text"
+            value={query.cuisine}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label style={{ minWidth: 150 }} className="mr-3">
+            Diet:
+          </label>
+          <input
+            className="mr-3"
+            name="diet"
+            type="text"
+            value={query.diet}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label style={{ minWidth: 150 }} className="mr-3">
+            Exclude Ingredients:
+          </label>
+          <input
+            className="mr-3"
+            name="excludeIngredients"
+            type="text"
+            value={query.excludeIngredients}
+            onChange={handleChange}
+          />
+          <label>
+            <em>separate by comma</em>
+          </label>
+        </div>
+        <div>
+          <label style={{ minWidth: 150 }} className="mr-3">
+            Intolerances:
+          </label>
+          <input
+            className="mr-3"
+            name="intolerances"
+            type="text"
+            value={query.intolerances}
+            onChange={handleChange}
+          />
+        </div>
         <button onClick={handleSubmit} className="btn btn-primary">
           Submit
         </button>
@@ -44,8 +112,14 @@ const index = (props) => {
                 <strong>{x}:</strong> {props.spoonacular[x].toString()}
               </div>
             ))}
-        {spoonacularKeys.length > 0 &&
-          props.spoonacular.results.map((x) => <Card key={x.id} results={x} />)}
+        <div className="row justify-content-md-center">
+          {spoonacularKeys.length > 0 &&
+            props.spoonacular.results.map((x) => (
+              <div className="col-sm-4" key={x.id}>
+                <Card baseUri={props.spoonacular.baseUri} results={x} />
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   )
