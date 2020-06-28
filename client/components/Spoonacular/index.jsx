@@ -126,7 +126,7 @@ const index = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  spoonacular: state.spoonacular
+  spoonacular: state.spoonacular.queries
 })
 
 export default connect(mapStateToProps, { requestApiSpoonacular })(index)

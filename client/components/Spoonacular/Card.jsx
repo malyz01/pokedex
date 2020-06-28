@@ -1,8 +1,16 @@
 import React from 'react'
 
 const Card = ({ baseUri: uri, results: r }) => {
+  const handleOnClick = () => {
+    alert(r.id)
+  }
+
   return (
-    <div className="card my-5">
+    <div
+      onClick={handleOnClick}
+      style={{ cursor: 'pointer' }}
+      className="card my-5"
+    >
       <img src={uri + r.image} className="card-img-top" alt={r.title} />
       <div className="card-header">
         <h5 className="card-title">title: {r.title}</h5>
