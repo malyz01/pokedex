@@ -1,9 +1,16 @@
-import { RECEIVE_API_QUERY_SPOONACULAR } from '../types'
+import * as t from '../types'
 
-export default (state = {}, action) => {
+const INITIAL = {
+  queries: {},
+  recipe: {}
+}
+
+export default (state = INITIAL, action) => {
   switch (action.type) {
-    case RECEIVE_API_QUERY_SPOONACULAR:
-      return action.payload
+    case t.RECEIVE_API_QUERY_SPOONACULAR:
+      return { ...state, queries: action.payload }
+    case t.RECEIVE_API_RECIPE_INFO:
+      return { ...state, recipe: action.payload }
     default:
       return state
   }
