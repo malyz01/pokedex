@@ -30,6 +30,18 @@ router.post('/spoonacular/search', async (req, res) => {
   }
 })
 
+// /api/v1/food/spoonacular/recipe/:id
+router.post('/spoonacular/recipe/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const response = await spoonacular.get(`${id}/information`)
+    res.status(200).json(response.data)
+  } catch (err) {
+    console.log(err)
+    res.json('Something went wrong in Get /api/v1/food/spoonacular/search')
+  }
+})
+
 // /api/v1/food/spoonacular/random
 router.get('/spoonacular/random', async (req, res) => {
   try {
