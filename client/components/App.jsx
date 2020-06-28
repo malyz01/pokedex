@@ -6,6 +6,7 @@ import Landing from './Landing'
 import Pokemon from './Pokemon'
 import Edamam from './Edamam'
 import Spoonacular from './Spoonacular'
+import RecipeInfo from './Spoonacular/Recipe'
 import Modal from './Pokemon/Modal'
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
         <Route exact path="/pokemon" component={Pokemon} />
         <Route exact path="/edamam" component={Edamam} />
         <Route exact path="/spoonacular" component={Spoonacular} />
-        <Route exact path="/spoonacular/:id" component={Spoonacular} />
+        <Route exact path="/spoonacular/:id" component={RecipeInfo} />
       </HashRouter>
     </>
   )

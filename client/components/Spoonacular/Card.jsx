@@ -1,8 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-const Card = ({ baseUri: uri, results: r }) => {
+const Card = ({ baseUri: uri, results: r, history }) => {
   const handleOnClick = () => {
-    alert(r.id)
+    history.push(`/spoonacular/${r.id}`)
   }
 
   return (
@@ -27,4 +28,4 @@ const Card = ({ baseUri: uri, results: r }) => {
   )
 }
 
-export default Card
+export default withRouter(Card)

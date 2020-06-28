@@ -31,7 +31,7 @@ router.post('/spoonacular/search', async (req, res) => {
 })
 
 // /api/v1/food/spoonacular/recipe/:id
-router.post('/spoonacular/recipe/:id', async (req, res) => {
+router.get('/spoonacular/recipe/:id', async (req, res) => {
   try {
     const { id } = req.params
     const response = await spoonacular.get(`${id}/information`)

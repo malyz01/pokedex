@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const index = () => {
+import { requestApiRecipeInfo } from '../../../store/actions/spoonacular'
+
+const index = (props) => {
+  const recipeId = props.match.params.id
+  useEffect(() => {
+    props.requestApiRecipeInfo(recipeId)
+  }, [])
   return <div>Recipe details</div>
 }
 
-export default index
+export default connect(null, { requestApiRecipeInfo })(index)
