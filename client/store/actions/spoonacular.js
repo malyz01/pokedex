@@ -1,14 +1,21 @@
-import {
-  REQUEST_API_QUERY_SPOONACULAR,
-  RECEIVE_API_QUERY_SPOONACULAR
-} from '../types'
+import * as t from '../types'
 
 export const requestApiSpoonacular = (payload) => ({
-  type: REQUEST_API_QUERY_SPOONACULAR,
+  type: t.REQUEST_API_QUERY_SPOONACULAR,
   payload
 })
 
 export const receiveApiSpoonacular = (payload) => ({
-  type: RECEIVE_API_QUERY_SPOONACULAR,
+  type: t.RECEIVE_API_QUERY_SPOONACULAR,
+  payload
+})
+
+export const requestApiRecipeInfo = (payload) => ({
+  type: t.REQUEST_API_RECIPE_INFO,
+  payload
+})
+
+export const receiveApiRecipeInfo = (payload) => ({
+  type: t.RECEIVE_API_RECIPE_INFO,
   payload
 })
